@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    color: #ff00ff;
+    text-shadow: 2px 2px #00ffff;
+    font-size: 2.5em;
+}
+
+.slider-container {
+    margin: 20px 0;
+}
+
+input[type="range"] {
+    width: 80%;
+    max-width: 500px;
+    -webkit-appearance: none;
+    height: 10px;
+    background: #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #ff4500;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#nostalgia-content {
+    background-color: #fff;
+    border: 2px solid #000;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 5px 5px #000;
+}
+
+#year-title {
+    color: #ff4500;
+    font-size: 1.8em;
+}
+
+#year-info {
+    font-size: 1.2em;
+    color: #333;
+}
