@@ -5,12 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NOWstalgia</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>NOWstalgia</h1>
     <div class="slider-container">
         <input type="range" min="1980" max="2025" value="2000" id="year-slider">
         <p>Year: <span id="year-display">2000</span></p>
+    </div>
+    <div class="category-buttons">
+        <button class="category-btn active" data-category="all">All</button>
+        <button class="category-btn" data-category="tech">Tech</button>
+        <button class="category-btn" data-category="music">Music</button>
+        <button class="category-btn" data-category="movies">Movies</button>
     </div>
     <div id="nostalgia-content">
         <h2 id="year-title">2000</h2>
