@@ -1,14 +1,25 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #1a1a1a; /* Dark retro BG */
     text-align: center;
     padding: 20px;
+    color: #fff;
 }
 
 h1 {
     color: #ff00ff;
-    text-shadow: 2px 2px #00ffff;
-    font-size: 2.5em;
+    text-shadow: 2px 2px #00ffff, -2px -2px #ff4500; /* Glitchy glow */
+    font-size: 2em;
+    animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-2px, 0); }
+    80% { transform: translate(2px, 0); }
+    100% { transform: translate(0); }
 }
 
 .slider-container {
@@ -20,9 +31,10 @@ input[type="range"] {
     max-width: 500px;
     -webkit-appearance: none;
     height: 10px;
-    background: #ccc;
+    background: #00ffff; /* Cyan slider */
     border-radius: 5px;
     outline: none;
+    box-shadow: 0 0 5px #00ffff;
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -32,23 +44,45 @@ input[type="range"]::-webkit-slider-thumb {
     background: #ff4500;
     border-radius: 50%;
     cursor: pointer;
+    box-shadow: 0 0 5px #ff4500;
+}
+
+.category-buttons {
+    margin: 20px 0;
+}
+
+.category-btn {
+    font-family: 'Press Start 2P', cursive;
+    background: #333;
+    color: #fff;
+    border: 2px solid #ff00ff;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.category-btn:hover, .category-btn.active {
+    background: #ff00ff;
+    color: #000;
+    box-shadow: 0 0 10px #ff00ff;
 }
 
 #nostalgia-content {
-    background-color: #fff;
-    border: 2px solid #000;
+    background-color: #000;
+    border: 3px solid #00ffff;
     padding: 20px;
     max-width: 600px;
     margin: 0 auto;
-    box-shadow: 5px 5px #000;
+    box-shadow: 0 0 15px #00ffff; /* CRT glow */
 }
 
 #year-title {
     color: #ff4500;
-    font-size: 1.8em;
+    font-size: 1.5em;
 }
 
 #year-info {
-    font-size: 1.2em;
-    color: #333;
+    font-size: 1em;
+    color: #fff;
 }
