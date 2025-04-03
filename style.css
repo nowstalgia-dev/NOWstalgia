@@ -1,55 +1,71 @@
 body {
     font-family: 'Press Start 2P', cursive;
-    background-color: #1a1a1a;
+    background: linear-gradient(135deg, #ff00ff, #00ffff, #ff00ff); /* Neon gradient */
     text-align: center;
     padding: 20px;
     color: #fff;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Background pattern inspired by smiley faces and geometric shapes */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/45-degree-fabric-light.png') repeat; /* Subtle fabric texture */
+    opacity: 0.2;
+    z-index: -1;
 }
 
 h1 {
-    color: #ff00ff;
-    text-shadow: 2px 2px #00ffff, -2px -2px #ff4500;
-    font-size: 2em;
-    animation: glitch 1s infinite;
+    color: #ffff00; /* Bright yellow */
+    text-shadow: 3px 3px #ff00ff, -3px -3px #00ffff; /* Neon pink/cyan shadow */
+    font-size: 2.5em;
+    animation: pulse 2s infinite;
 }
 
-@keyframes glitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(2px, -2px); }
-    60% { transform: translate(-2px, 0); }
-    80% { transform: translate(2px, 0); }
-    100% { transform: translate(0); }
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
 .slider-container {
     margin: 20px 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #ff00ff;
 }
 
 input[type="range"] {
     width: 80%;
     max-width: 500px;
     -webkit-appearance: none;
-    height: 10px;
-    background: #00ffff;
+    height: 12px;
+    background: linear-gradient(to right, #ff00ff, #00ffff); /* Gradient slider */
     border-radius: 5px;
     outline: none;
-    box-shadow: 0 0 5px #00ffff;
+    box-shadow: 0 0 5px #ffff00;
     transition: background 0.3s ease;
 }
 
 input[type="range"]:hover {
-    background: #ff00ff;
+    background: linear-gradient(to right, #00ffff, #ff00ff);
 }
 
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 20px;
-    height: 20px;
-    background: #ff4500;
+    width: 24px;
+    height: 24px;
+    background: #ffff00;
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 0 5px #ff4500;
+    box-shadow: 0 0 8px #ff00ff;
 }
 
 .category-buttons {
@@ -58,39 +74,42 @@ input[type="range"]::-webkit-slider-thumb {
 
 .category-btn {
     font-family: 'Press Start 2P', cursive;
-    background: #333;
-    color: #fff;
-    border: 2px solid #ff00ff;
+    background: #ff00ff; /* Neon pink */
+    color: #000;
+    border: 2px solid #00ffff; /* Cyan border */
     padding: 10px 20px;
     margin: 0 5px;
     cursor: pointer;
     transition: all 0.3s;
+    box-shadow: 0 0 10px #00ffff;
 }
 
 .category-btn:hover, .category-btn.active {
-    background: #ff00ff;
-    color: #000;
-    box-shadow: 0 0 10px #ff00ff;
+    background: #00ffff; /* Cyan on hover/active */
+    color: #ff00ff;
+    box-shadow: 0 0 15px #ff00ff;
 }
 
 #nostalgia-content {
-    background-color: #000;
-    border: 3px solid #00ffff;
+    background: rgba(0, 0, 0, 0.7); /* Darker semi-transparent */
+    border: 3px solid #ffff00; /* Yellow border */
     padding: 20px;
     max-width: 600px;
     margin: 0 auto;
-    box-shadow: 0 0 15px #00ffff;
+    box-shadow: 0 0 20px #ff00ff;
     transition: opacity 0.3s ease;
 }
 
 #year-title {
-    color: #ff4500;
+    color: #00ffff; /* Cyan */
     font-size: 1.5em;
+    text-shadow: 2px 2px #ff00ff;
 }
 
 #year-info {
     font-size: 1em;
-    color: #fff;
+    color: #ffff00; /* Yellow text */
+    text-shadow: 1px 1px #ff00ff;
 }
 
 /* Swiper Cover Flow Styling */
@@ -116,16 +135,16 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .swiper-button-next, .swiper-button-prev {
-    color: #ff00ff;
+    color: #ffff00; /* Yellow arrows */
     filter: drop-shadow(0 0 5px #ff00ff);
 }
 
 .swiper-pagination-bullet {
-    background: #00ffff;
+    background: #ff00ff; /* Pink dots */
 }
 
 .swiper-pagination-bullet-active {
-    background: #ff4500;
+    background: #00ffff; /* Cyan active dot */
 }
 
 .submit-form {
@@ -136,32 +155,35 @@ input[type="range"]::-webkit-slider-thumb {
 .submit-form h3 {
     color: #00ffff;
     font-size: 1.2em;
+    text-shadow: 1px 1px #ff00ff;
 }
 
 #memory-input {
     width: 80%;
     height: 100px;
-    background: #333;
-    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffff00;
     border: 2px solid #ff00ff;
     padding: 10px;
     font-family: Arial, sans-serif;
     resize: none;
+    box-shadow: 0 0 10px #ff00ff;
 }
 
 #submit-memory {
     font-family: 'Press Start 2P', cursive;
-    background: #ff4500;
-    color: #fff;
+    background: #ff00ff;
+    color: #000;
     border: 2px solid #00ffff;
     padding: 10px 20px;
     margin-top: 10px;
     cursor: pointer;
     transition: all 0.3s;
+    box-shadow: 0 0 10px #00ffff;
 }
 
 #submit-memory:hover {
     background: #00ffff;
-    color: #000;
-    box-shadow: 0 0 10px #00ffff;
+    color: #ff00ff;
+    box-shadow: 0 0 15px #ff00ff;
 }
