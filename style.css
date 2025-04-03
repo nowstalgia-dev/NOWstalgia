@@ -35,11 +35,11 @@ input[type="range"] {
     border-radius: 5px;
     outline: none;
     box-shadow: 0 0 5px #00ffff;
-    transition: background 0.3s ease; /* Smooth slider */
+    transition: background 0.3s ease;
 }
 
 input[type="range"]:hover {
-    background: #ff00ff; /* Pink on hover */
+    background: #ff00ff;
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -80,7 +80,7 @@ input[type="range"]::-webkit-slider-thumb {
     max-width: 600px;
     margin: 0 auto;
     box-shadow: 0 0 15px #00ffff;
-    transition: opacity 0.3s ease; /* Fade on update */
+    transition: opacity 0.3s ease;
 }
 
 #year-title {
@@ -90,10 +90,12 @@ input[type="range"]::-webkit-slider-thumb {
 
 #year-image {
     max-width: 100%;
+    width: 300px; /* Fixed width for consistency */
     height: auto;
     margin: 10px 0;
     border: 2px solid #ff4500;
     box-shadow: 0 0 10px #ff4500;
+    display: block; /* Always show, hide via JS if empty */
 }
 
 #year-info {
