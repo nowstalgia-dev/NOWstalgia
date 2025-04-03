@@ -1,6 +1,6 @@
 body {
     font-family: 'Press Start 2P', cursive;
-    background: linear-gradient(135deg, #ff00ff, #00ffff, #ff00ff); /* Neon gradient */
+    background: #1a1a1a; /* Dark Y2K background */
     text-align: center;
     padding: 20px;
     color: #fff;
@@ -8,7 +8,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Background pattern inspired by smiley faces and geometric shapes */
+/* Y2K wireframe grid background */
 body::before {
     content: '';
     position: fixed;
@@ -16,30 +16,33 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('https://www.transparenttextures.com/patterns/45-degree-fabric-light.png') repeat; /* Subtle fabric texture */
-    opacity: 0.2;
+    background: url('https://www.transparenttextures.com/patterns/grid-me.png') repeat; /* Subtle grid texture */
+    opacity: 0.1;
     z-index: -1;
 }
 
 h1 {
-    color: #ffff00; /* Bright yellow */
-    text-shadow: 3px 3px #ff00ff, -3px -3px #00ffff; /* Neon pink/cyan shadow */
+    color: #fff; /* White base */
+    background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff); /* Holographic gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.8); /* Neon glow */
     font-size: 2.5em;
-    animation: pulse 2s infinite;
+    animation: flicker 3s infinite;
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
 }
 
 .slider-container {
     margin: 20px 0;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    background: rgba(255, 255, 255, 0.1); /* Glassy effect */
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0 0 15px #ff00ff;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+    backdrop-filter: blur(5px); /* Frosted glass */
 }
 
 input[type="range"] {
@@ -50,7 +53,7 @@ input[type="range"] {
     background: linear-gradient(to right, #ff00ff, #00ffff); /* Gradient slider */
     border-radius: 5px;
     outline: none;
-    box-shadow: 0 0 5px #ffff00;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
     transition: background 0.3s ease;
 }
 
@@ -62,10 +65,10 @@ input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 24px;
     height: 24px;
-    background: #ffff00;
+    background: #fff;
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 0 8px #ff00ff;
+    box-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
 }
 
 .category-buttons {
@@ -74,42 +77,45 @@ input[type="range"]::-webkit-slider-thumb {
 
 .category-btn {
     font-family: 'Press Start 2P', cursive;
-    background: #ff00ff; /* Neon pink */
-    color: #000;
-    border: 2px solid #00ffff; /* Cyan border */
+    background: linear-gradient(45deg, #ff00ff, #00ffff); /* Holographic gradient */
+    color: #fff;
+    border: none;
     padding: 10px 20px;
     margin: 0 5px;
     cursor: pointer;
     transition: all 0.3s;
-    box-shadow: 0 0 10px #00ffff;
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
 }
 
 .category-btn:hover, .category-btn.active {
-    background: #00ffff; /* Cyan on hover/active */
-    color: #ff00ff;
-    box-shadow: 0 0 15px #ff00ff;
+    background: linear-gradient(45deg, #00ffff, #ff00ff);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
 }
 
 #nostalgia-content {
-    background: rgba(0, 0, 0, 0.7); /* Darker semi-transparent */
-    border: 3px solid #ffff00; /* Yellow border */
+    background: rgba(255, 255, 255, 0.05); /* Glassy Y2K effect */
+    border: 2px solid #fff;
     padding: 20px;
     max-width: 600px;
     margin: 0 auto;
-    box-shadow: 0 0 20px #ff00ff;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
     transition: opacity 0.3s ease;
 }
 
 #year-title {
-    color: #00ffff; /* Cyan */
+    color: #fff;
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-size: 1.5em;
-    text-shadow: 2px 2px #ff00ff;
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
 }
 
 #year-info {
     font-size: 1em;
-    color: #ffff00; /* Yellow text */
-    text-shadow: 1px 1px #ff00ff;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
 }
 
 /* Swiper Cover Flow Styling */
@@ -124,7 +130,7 @@ input[type="range"]::-webkit-slider-thumb {
     background-size: cover;
     width: 300px;
     height: 200px;
-    box-shadow: 0 0 10px #00ffff; /* Subtle cyan glow */
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.5); /* Holographic glow */
     transition: transform 0.3s ease;
 }
 
@@ -132,19 +138,20 @@ input[type="range"]::-webkit-slider-thumb {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: brightness(1.1) saturate(1.2); /* Enhance image vibrancy */
 }
 
 .swiper-button-next, .swiper-button-prev {
-    color: #ffff00; /* Yellow arrows */
-    filter: drop-shadow(0 0 5px #ff00ff);
+    color: #fff;
+    filter: drop-shadow(0 0 5px #ff00ff) drop-shadow(0 0 10px #00ffff);
 }
 
 .swiper-pagination-bullet {
-    background: #ff00ff; /* Pink dots */
+    background: #ff00ff;
 }
 
 .swiper-pagination-bullet-active {
-    background: #00ffff; /* Cyan active dot */
+    background: #00ffff;
 }
 
 .submit-form {
@@ -153,37 +160,39 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .submit-form h3 {
-    color: #00ffff;
+    color: #fff;
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-size: 1.2em;
-    text-shadow: 1px 1px #ff00ff;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
 }
 
 #memory-input {
     width: 80%;
     height: 100px;
-    background: rgba(0, 0, 0, 0.5);
-    color: #ffff00;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
     border: 2px solid #ff00ff;
     padding: 10px;
     font-family: Arial, sans-serif;
     resize: none;
-    box-shadow: 0 0 10px #ff00ff;
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
 }
 
 #submit-memory {
     font-family: 'Press Start 2P', cursive;
-    background: #ff00ff;
-    color: #000;
-    border: 2px solid #00ffff;
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    color: #fff;
+    border: none;
     padding: 10px 20px;
     margin-top: 10px;
     cursor: pointer;
     transition: all 0.3s;
-    box-shadow: 0 0 10px #00ffff;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
 #submit-memory:hover {
-    background: #00ffff;
-    color: #ff00ff;
-    box-shadow: 0 0 15px #ff00ff;
+    background: linear-gradient(45deg, #00ffff, #ff00ff);
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.8);
 }
