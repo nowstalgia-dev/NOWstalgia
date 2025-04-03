@@ -9,77 +9,77 @@ const submitMemory = document.getElementById('submit-memory');
 
 let currentCategory = 'all';
 
-// Nostalgia data with image URLs (using free placeholders for now)
+// Nostalgia data with Unsplash images
 const nostalgiaData = {
     1980: {
         all: "Disco fades, Rubik’s Cube launches, *Empire Strikes Back* hits.",
         tech: "Rubik’s Cube puzzles the world, arcade games peak.",
         music: "Disco’s last gasp—Blondie’s *Call Me* rules.",
         movies: "*Empire Strikes Back*—Vader drops the bomb.",
-        image: "https://via.placeholder.com/300x200?text=1980+Rubiks+Cube"
+        image: "https://images.unsplash.com/photo-1612980738622-5f4e9a7e391f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" // Rubik’s Cube
     },
     1985: {
         all: "*Back to the Future* zaps in, NES lands, Madonna reigns.",
         tech: "Nintendo Entertainment System brings Mario home.",
         music: "Madonna’s *Like a Virgin* owns the charts.",
         movies: "*Back to the Future*—Marty rewinds time.",
-        image: "https://via.placeholder.com/300x200?text=1985+NES"
+        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" // NES controller
     },
     1990: {
         all: "Game Boy grips kids, *Home Alone* steals Xmas, grunge brews.",
         tech: "Game Boy’s Tetris addiction spreads.",
         music: "Nirvana’s grunge whispers start with *Bleach*.",
         movies: "*Home Alone*—Kevin’s pizza and traps.",
-        image: "https://via.placeholder.com/300x200?text=1990+Game+Boy"
+        image: "https://images.unsplash.com/photo-1605192649655-3d9ca43d7258?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" // Game Boy
     },
     1995: {
         all: "PlayStation drops, *Toy Story* animates, Oasis vs. Blur.",
         tech: "Sony PlayStation redefines gaming.",
         music: "Oasis’ *Wonderwall* battles Blur’s *Country House*.",
         movies: "*Toy Story*—Pixar’s first big buzz.",
-        image: "https://via.placeholder.com/300x200?text=1995+PlayStation"
+        image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" // PlayStation
     },
     2000: {
         all: "Y2K flops, Nokia 3310 vibes, *Gladiator* slays.",
         tech: "Nokia 3310—indestructible brick phone.",
         music: "Eminem’s *Stan* haunts the airwaves.",
         movies: "*Gladiator*—Maximus roars in the arena.",
-        image: "https://via.placeholder.com/300x200?text=2000+Nokia+3310"
+        image: "https://images.unsplash.com/photo-1605648916361-8d4b37c1fa49?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" // Old phone (close enough)
     },
     2005: {
         all: "YouTube boots up, *Batman Begins*, MySpace peaks.",
         tech: "YouTube launches—cat videos incoming.",
         music: "Green Day’s *American Idiot* resurges punk.",
         movies: "*Batman Begins*—Nolan’s dark knight rises.",
-        image: "https://via.placeholder.com/300x200?text=2005+YouTube"
+        image: "https://images.unsplash.com/photo-1519337265839-57d9e6e465f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" // Vintage screen
     },
     2010: {
         all: "Instagram snaps in, iPad reshapes, *Inception* dreams.",
         tech: "Apple iPad—tablets go mainstream.",
         music: "Lady Gaga’s *Bad Romance* slays pop.",
         movies: "*Inception*—dreams within dreams.",
-        image: "https://via.placeholder.com/300x200?text=2010+iPad"
+        image: "https://images.unsplash.com/photo-1584432810606-22ff0c3323e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" // iPad
     },
     2015: {
         all: "Netflix booms, *Mad Max: Fury Road*, streaming wars.",
         tech: "Netflix doubles down on originals.",
         music: "The Weeknd’s *Can’t Feel My Face* vibes.",
         movies: "*Mad Max: Fury Road*—insane desert chases.",
-        image: "https://via.placeholder.com/300x200?text=2015+Netflix"
+        image: "https://images.unsplash.com/photo-1612036781124-847f8939b508?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" // Streaming vibe
     },
     2020: {
         all: "Lockdowns hit, TikTok explodes, *The Last Dance* streams.",
         tech: "TikTok—short vids take over.",
         music: "Billie Eilish’s *Everything I Wanted* haunts.",
         movies: "*The Last Dance*—Jordan’s final shot.",
-        image: "https://via.placeholder.com/300x200?text=2020+TikTok"
+        image: "https://images.unsplash.com/photo-1611162617213-7d15d7509e76?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" // TikTok phone
     },
     2025: {
         all: "AI art booms, *Avatar 3* lands, retro’s back big.",
         tech: "AI tools like Grok (hey, that’s me!) rule.",
         music: "Synthwave revival—nostalgia’s sound.",
         movies: "*Avatar 3*—Pandora’s next chapter.",
-        image: "https://via.placeholder.com/300x200?text=2025+AI+Art"
+        image: "https://images.unsplash.com/photo-1620712943543-bcc4688e5250?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" // AI art
     }
 };
 
