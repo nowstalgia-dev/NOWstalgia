@@ -6,6 +6,8 @@
     <title>NOWstalgia</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- Swiper.js CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 <body>
     <h1>NOWstalgia</h1>
@@ -21,14 +23,26 @@
     </div>
     <div id="nostalgia-content">
         <h2 id="year-title">2000</h2>
-        <img id="year-image" src="" alt="Nostalgia Image" style="display: none;">
         <p id="year-info">Loading nostalgia...</p>
+        <!-- Cover Flow Slider -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper" id="year-images">
+                <!-- Images will be dynamically added here -->
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
     </div>
     <div class="submit-form">
         <h3>Add Your Memory</h3>
-        <textarea id="memory-input" placeholder="Share a vibe from this year..."></textarea>
+        <textarea id="memory-input" placeholder W="Share a vibe from this year..."></textarea>
         <button id="submit-memory">Submit</button>
     </div>
+    <!-- Swiper.js Script -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
