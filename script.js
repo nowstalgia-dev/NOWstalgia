@@ -1,74 +1,90 @@
 const slider = document.getElementById('year-slider');
 const yearDisplay = document.getElementById('year-display');
 const yearTitle = document.getElementById('year-title');
+const yearImage = document.getElementById('year-image');
 const yearInfo = document.getElementById('year-info');
 const categoryButtons = document.querySelectorAll('.category-btn');
+const memoryInput = document.getElementById('memory-input');
+const submitMemory = document.getElementById('submit-memory');
 
 let currentCategory = 'all';
 
-// Expanded nostalgia data with categories
+// Nostalgia data with image URLs (using free placeholders for now)
 const nostalgiaData = {
     1980: {
         all: "Disco fades, Rubik’s Cube launches, *Empire Strikes Back* hits.",
         tech: "Rubik’s Cube puzzles the world, arcade games peak.",
         music: "Disco’s last gasp—Blondie’s *Call Me* rules.",
-        movies: "*Empire Strikes Back*—Vader drops the bomb."
+        movies: "*Empire Strikes Back*—Vader drops the bomb.",
+        image: "https://via.placeholder.com/300x200?text=1980+Rubiks+Cube"
     },
     1985: {
         all: "*Back to the Future* zaps in, NES lands, Madonna reigns.",
         tech: "Nintendo Entertainment System brings Mario home.",
         music: "Madonna’s *Like a Virgin* owns the charts.",
-        movies: "*Back to the Future*—Marty rewinds time."
+        movies: "*Back to the Future*—Marty rewinds time.",
+        image: "https://via.placeholder.com/300x200?text=1985+NES"
     },
     1990: {
         all: "Game Boy grips kids, *Home Alone* steals Xmas, grunge brews.",
         tech: "Game Boy’s Tetris addiction spreads.",
         music: "Nirvana’s grunge whispers start with *Bleach*.",
-        movies: "*Home Alone*—Kevin’s pizza and traps."
+        movies: "*Home Alone*—Kevin’s pizza and traps.",
+        image: "https://via.placeholder.com/300x200?text=1990+Game+Boy"
     },
     1995: {
         all: "PlayStation drops, *Toy Story* animates, Oasis vs. Blur.",
         tech: "Sony PlayStation redefines gaming.",
         music: "Oasis’ *Wonderwall* battles Blur’s *Country House*.",
-        movies: "*Toy Story*—Pixar’s first big buzz."
+        movies: "*Toy Story*—Pixar’s first big buzz.",
+        image: "https://via.placeholder.com/300x200?text=1995+PlayStation"
     },
     2000: {
         all: "Y2K flops, Nokia 3310 vibes, *Gladiator* slays.",
         tech: "Nokia 3310—indestructible brick phone.",
         music: "Eminem’s *Stan* haunts the airwaves.",
-        movies: "*Gladiator*—Maximus roars in the arena."
+        movies: "*Gladiator*—Maximus roars in the arena.",
+        image: "https://via.placeholder.com/300x200?text=2000+Nokia+3310"
     },
     2005: {
         all: "YouTube boots up, *Batman Begins*, MySpace peaks.",
         tech: "YouTube launches—cat videos incoming.",
         music: "Green Day’s *American Idiot* resurges punk.",
-        movies: "*Batman Begins*—Nolan’s dark knight rises."
+        movies: "*Batman Begins*—Nolan’s dark knight rises.",
+        image: "https://via.placeholder.com/300x200?text=2005+YouTube"
     },
     2010: {
         all: "Instagram snaps in, iPad reshapes, *Inception* dreams.",
         tech: "Apple iPad—tablets go mainstream.",
         music: "Lady Gaga’s *Bad Romance* slays pop.",
-        movies: "*Inception*—dreams within dreams."
+        movies: "*Inception*—dreams within dreams.",
+        image: "https://via.placeholder.com/300x200?text=2010+iPad"
     },
     2015: {
         all: "Netflix booms, *Mad Max: Fury Road*, streaming wars.",
         tech: "Netflix doubles down on originals.",
         music: "The Weeknd’s *Can’t Feel My Face* vibes.",
-        movies: "*Mad Max: Fury Road*—insane desert chases."
+        movies: "*Mad Max: Fury Road*—insane desert chases.",
+        image: "https://via.placeholder.com/300x200?text=2015+Netflix"
     },
     2020: {
         all: "Lockdowns hit, TikTok explodes, *The Last Dance* streams.",
         tech: "TikTok—short vids take over.",
         music: "Billie Eilish’s *Everything I Wanted* haunts.",
-        movies: "*The Last Dance*—Jordan’s final shot."
+        movies: "*The Last Dance*—Jordan’s final shot.",
+        image: "https://via.placeholder.com/300x200?text=2020+TikTok"
     },
     2025: {
         all: "AI art booms, *Avatar 3* lands, retro’s back big.",
         tech: "AI tools like Grok (hey, that’s me!) rule.",
         music: "Synthwave revival—nostalgia’s sound.",
-        movies: "*Avatar 3*—Pandora’s next chapter."
+        movies: "*Avatar 3*—Pandora’s next chapter.",
+        image: "https://via.placeholder.com/300x200?text=2025+AI+Art"
     }
 };
+
+// Load user-submitted memories from localStorage
+let userMemories = JSON.parse(localStorage.getItem('userMemories')) || {};
 
 // Update content based on slider and category
 function updateContent() {
@@ -76,7 +92,9 @@ function updateContent() {
     yearDisplay.textContent = year;
     yearTitle.textContent = year;
     const yearData = nostalgiaData[year] || {};
-    yearInfo.textContent = yearData[currentCategory] || "No vibes yet—add your own!";
+    yearInfo.textContent = yearData[currentCategory] || userMemories[year] || "No vibes yet—add your own!";
+    yearImage.src = yearData.image || '';
+    yearImage.style.display = yearData.image ? 'block' : 'none';
 }
 
 slider.addEventListener('input', updateContent);
@@ -89,6 +107,18 @@ categoryButtons.forEach(button => {
         currentCategory = button.getAttribute('data-category');
         updateContent();
     });
+});
+
+// Submit memory logic
+submitMemory.addEventListener('click', () => {
+    const year = slider.value;
+    const memory = memoryInput.value.trim();
+    if (memory) {
+        userMemories[year] = memory;
+        localStorage.setItem('userMemories', JSON.stringify(userMemories));
+        memoryInput.value = '';
+        updateContent();
+    }
 });
 
 // Initial load
