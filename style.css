@@ -1,6 +1,6 @@
 body {
     font-family: 'Press Start 2P', cursive;
-    background-color: #1a1a1a; /* Dark retro BG */
+    background-color: #1a1a1a;
     text-align: center;
     padding: 20px;
     color: #fff;
@@ -8,7 +8,7 @@ body {
 
 h1 {
     color: #ff00ff;
-    text-shadow: 2px 2px #00ffff, -2px -2px #ff4500; /* Glitchy glow */
+    text-shadow: 2px 2px #00ffff, -2px -2px #ff4500;
     font-size: 2em;
     animation: glitch 1s infinite;
 }
@@ -31,10 +31,15 @@ input[type="range"] {
     max-width: 500px;
     -webkit-appearance: none;
     height: 10px;
-    background: #00ffff; /* Cyan slider */
+    background: #00ffff;
     border-radius: 5px;
     outline: none;
     box-shadow: 0 0 5px #00ffff;
+    transition: background 0.3s ease; /* Smooth slider */
+}
+
+input[type="range"]:hover {
+    background: #ff00ff; /* Pink on hover */
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -74,7 +79,8 @@ input[type="range"]::-webkit-slider-thumb {
     padding: 20px;
     max-width: 600px;
     margin: 0 auto;
-    box-shadow: 0 0 15px #00ffff; /* CRT glow */
+    box-shadow: 0 0 15px #00ffff;
+    transition: opacity 0.3s ease; /* Fade on update */
 }
 
 #year-title {
@@ -82,7 +88,53 @@ input[type="range"]::-webkit-slider-thumb {
     font-size: 1.5em;
 }
 
+#year-image {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+    border: 2px solid #ff4500;
+    box-shadow: 0 0 10px #ff4500;
+}
+
 #year-info {
     font-size: 1em;
     color: #fff;
+}
+
+.submit-form {
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.submit-form h3 {
+    color: #00ffff;
+    font-size: 1.2em;
+}
+
+#memory-input {
+    width: 80%;
+    height: 100px;
+    background: #333;
+    color: #fff;
+    border: 2px solid #ff00ff;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    resize: none;
+}
+
+#submit-memory {
+    font-family: 'Press Start 2P', cursive;
+    background: #ff4500;
+    color: #fff;
+    border: 2px solid #00ffff;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#submit-memory:hover {
+    background: #00ffff;
+    color: #000;
+    box-shadow: 0 0 10px #00ffff;
 }
