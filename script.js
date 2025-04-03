@@ -9,7 +9,7 @@ const submitMemory = document.getElementById('submit-memory');
 
 let currentCategory = 'all';
 
-// Nostalgia data with links
+// Nostalgia data with shoppable links
 const nostalgiaData = {
     1980: {
         all: "Disco fades, Rubik’s Cube launches, *Empire Strikes Back* hits. <a href='https://www.ebay.com/sch/i.html?_nkw=rubiks+cube+vintage' target='_blank'>Get a Rubik’s Cube</a>",
@@ -92,7 +92,7 @@ function updateContent() {
     yearDisplay.textContent = year;
     yearTitle.textContent = year;
     const yearData = nostalgiaData[year] || {};
-    yearInfo.innerHTML = yearData[currentCategory] || userMemories[year] || "No vibes yet—add your own!"; // innerHTML for links
+    yearInfo.innerHTML = yearData[currentCategory] || userMemories[year] || "No vibes yet—add your own!";
     yearImage.src = yearData.image || '';
     yearImage.style.display = yearData.image ? 'block' : 'none';
 }
