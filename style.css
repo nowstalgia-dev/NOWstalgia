@@ -88,19 +88,45 @@ input[type="range"]::-webkit-slider-thumb {
     font-size: 1.5em;
 }
 
-#year-image {
-    max-width: 100%;
-    width: 300px; /* Fixed width for consistency */
-    height: auto;
-    margin: 10px 0;
-    border: 2px solid #ff4500;
-    box-shadow: 0 0 10px #ff4500;
-    display: block; /* Always show, hide via JS if empty */
-}
-
 #year-info {
     font-size: 1em;
     color: #fff;
+}
+
+/* Swiper Cover Flow Styling */
+.swiper-container {
+    width: 100%;
+    height: 300px;
+    margin: 20px auto;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 200px;
+    border: 2px solid #ff4500;
+    box-shadow: 0 0 10px #ff4500;
+    transition: transform 0.3s ease;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color: #ff00ff;
+    filter: drop-shadow(0 0 5px #ff00ff);
+}
+
+.swiper-pagination-bullet {
+    background: #00ffff;
+}
+
+.swiper-pagination-bullet-active {
+    background: #ff4500;
 }
 
 .submit-form {
