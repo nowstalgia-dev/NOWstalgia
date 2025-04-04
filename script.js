@@ -242,15 +242,16 @@ function updateContent() {
         yearImages.appendChild(slide);
     });
 
-    // Reinitialize Swiper with adjusted Cover Flow settings
+    // Reinitialize Swiper with adjusted settings for seamless looping
     if (swiper) swiper.destroy();
     swiper = new Swiper('.swiper-container', {
         effect: 'coverflow',
         grabCursor: true,
         centeredSlides: true,
-        slidesPerView: 'auto',
+        slidesPerView: 3, // Force at least 3 slides to be visible (left, center, right)
+        spaceBetween: 0, // Ensure no extra spacing between slides
         loop: true,
-        loopAdditionalSlides: 10, // Increase to ensure seamless looping
+        loopAdditionalSlides: 15, // Increase to ensure enough slides are pre-rendered
         initialSlide: Math.floor(duplicatedImages.length / 2), // Start in the middle
         coverflowEffect: {
             rotate: 45, // More pronounced rotation
