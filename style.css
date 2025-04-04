@@ -84,6 +84,10 @@ input[type="range"]::-webkit-slider-thumb {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+.category-btn:active {
+    animation: button-scale 0.2s ease;
+}
+
 #nostalgia-content {
     background: rgba(255, 255, 255, 0.05);
     border: none;
@@ -126,7 +130,20 @@ input[type="range"]::-webkit-slider-thumb {
     transition: transform 0.3s ease;
     position: relative;
     border-radius: 12px;
-    cursor: pointer; /* Indicate clickability */
+    cursor: pointer;
+    opacity: 0; /* Start hidden for fade-in */
+    animation: fade-in 0.5s ease forwards;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .swiper-slide::before {
@@ -215,7 +232,22 @@ input[type="range"]::-webkit-slider-thumb {
     background: #005bb5;
 }
 
-/* Modal Styling */
+#submit-memory:active {
+    animation: button-scale 0.2s ease;
+}
+
+@keyframes button-scale {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -284,4 +316,8 @@ input[type="range"]::-webkit-slider-thumb {
 
 .modal-btn:hover {
     background: #005bb5;
+}
+
+.modal-btn:active {
+    animation: button-scale 0.2s ease;
 }
