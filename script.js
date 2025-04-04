@@ -229,7 +229,7 @@ function updateContent() {
 
     // Duplicate images to ensure enough slides for seamless looping
     const images = yearData.images || [];
-    const duplicatedImages = [...images, ...images, ...images, ...images, ...images]; // 5x duplication for smoother looping
+    const duplicatedImages = [...images, ...images, ...images, ...images, ...images, ...images, ...images, ...images, ...images, ...images]; // 10x duplication for seamless looping
 
     // Add duplicated images to Swiper with click handlers
     duplicatedImages.forEach((image, index) => {
@@ -248,10 +248,9 @@ function updateContent() {
         effect: 'coverflow',
         grabCursor: true,
         centeredSlides: true,
-        slidesPerView: 3, // Force at least 3 slides to be visible (left, center, right)
-        spaceBetween: 0, // Ensure no extra spacing between slides
+        slidesPerView: 'auto', // Revert to 'auto' to allow dynamic slide visibility
         loop: true,
-        loopAdditionalSlides: 15, // Increase to ensure enough slides are pre-rendered
+        loopAdditionalSlides: 30, // Increase to ensure enough slides are pre-rendered
         initialSlide: Math.floor(duplicatedImages.length / 2), // Start in the middle
         coverflowEffect: {
             rotate: 45, // More pronounced rotation
