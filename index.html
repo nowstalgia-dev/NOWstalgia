@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NOWstalgia</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <!-- Swiper.js CDN -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 <body>
@@ -24,24 +23,32 @@
     <div id="nostalgia-content">
         <h2 id="year-title">2000</h2>
         <p id="year-info">Loading nostalgia...</p>
-        <!-- Cover Flow Slider -->
         <div class="swiper-container">
             <div class="swiper-wrapper" id="year-images">
                 <!-- Images will be dynamically added here -->
             </div>
-            <!-- Add Pagination -->
             <div class="swiper-pagination"></div>
-            <!-- Add Navigation -->
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
         </div>
     </div>
     <div class="submit-form">
         <h3>Add Your Memory</h3>
-        <textarea id="memory-input" placeholder W="Share a vibe from this year..."></textarea>
+        <textarea id="memory-input" placeholder="Share a vibe from this year..."></textarea>
         <button id="submit-memory">Submit</button>
     </div>
-    <!-- Swiper.js Script -->
+    <!-- Modal for marketplace options -->
+    <div id="marketplace-modal" class="modal">
+        <div class="modal-content">
+            <span id="modal-close" class="modal-close">&times;</span>
+            <h3 id="modal-title">Explore This Item</h3>
+            <div id="modal-buttons">
+                <button id="modal-buy" class="modal-btn">Buy Item</button>
+                <button id="modal-stream" class="modal-btn">Stream Music/Movie</button>
+                <button id="modal-marketplace" class="modal-btn">View in Marketplace</button>
+            </div>
+        </div>
+    </div>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
