@@ -12,6 +12,7 @@ const modalBuy = document.getElementById('modal-buy');
 const modalStream = document.getElementById('modal-stream');
 const modalMarketplace = document.getElementById('modal-marketplace');
 const modalClose = document.getElementById('modal-close');
+const clickSound = document.getElementById('click-sound');
 
 let currentCategory = 'all';
 let swiper;
@@ -207,6 +208,14 @@ const nostalgiaData = {
 // Load user-submitted memories from localStorage
 let userMemories = JSON.parse(localStorage.getItem('userMemories')) || {};
 
+// Function to play click sound
+function playClickSound() {
+    clickSound.currentTime = 0; // Reset to start
+    clickSound.play().catch(error => {
+        console.error("Error playing sound:", error);
+    });
+}
+
 // Update content based on slider and category
 function updateContent() {
     const year = slider.value;
@@ -220,7 +229,7 @@ function updateContent() {
 
     // Duplicate images to ensure enough slides for balanced display
     const images = yearData.images || [];
-    const duplicatedImages = [...images, ...images];
+    const duplicatedImages = [...images, ...images, ...images]; // Triplicate for smoother looping
 
     // Add duplicated images to Swiper with click handlers
     duplicatedImages.forEach((image, index) => {
@@ -233,7 +242,7 @@ function updateContent() {
         yearImages.appendChild(slide);
     });
 
-    // Reinitialize Swiper
+    // Reinitialize Swiper with adjusted Cover Flow settings
     if (swiper) swiper.destroy();
     swiper = new Swiper('.swiper-container', {
         effect: 'coverflow',
@@ -241,13 +250,13 @@ function updateContent() {
         centeredSlides: true,
         slidesPerView: 'auto',
         loop: true,
-        loopAdditionalSlides: 3,
-        initialSlide: Math.floor(images.length / 2),
+        loopAdditionalSlides: 6, // Increase for smoother looping
+        initialSlide: Math.floor(duplicatedImages.length / 2), // Start in the middle
         coverflowEffect: {
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
+            rotate: 30, // More pronounced rotation
+            stretch: -50, // Negative stretch to overlap edges
+            depth: 200, // Deeper perspective
+            modifier: 2, // Amplify the effect
             slideShadows: true,
         },
         pagination: {
@@ -260,10 +269,14 @@ function updateContent() {
         },
     });
 
+    // Force Swiper to re-render for looping
     setTimeout(() => {
         swiper.update();
         swiper.slideToLoop(Math.floor(images.length / 2), 0);
     }, 100);
+
+    // Play sound on year change
+    playClickSound();
 }
 
 // Handle image click to show modal
@@ -283,19 +296,22 @@ function handleImageClick(event) {
     modalStream.style.display = links.stream ? 'block' : 'none';
     modalMarketplace.style.display = links.marketplace ? 'block' : 'none';
 
-    // Show modal
+    // Show modal and play sound
     modal.style.display = 'flex';
+    playClickSound();
 }
 
 // Close modal
 modalClose.addEventListener('click', () => {
     modal.style.display = 'none';
+    playClickSound();
 });
 
 // Close modal when clicking outside
 window.addEventListener('click', (event) => {
     if (event.target === modal) {
         modal.style.display = 'none';
+        playClickSound();
     }
 });
 
@@ -308,6 +324,7 @@ categoryButtons.forEach(button => {
         button.classList.add('active');
         currentCategory = button.getAttribute('data-category');
         updateContent();
+        playClickSound();
     });
 });
 
@@ -320,6 +337,7 @@ submitMemory.addEventListener('click', () => {
         localStorage.setItem('userMemories', JSON.stringify(userMemories));
         memoryInput.value = '';
         updateContent();
+        playClickSound();
     }
 });
 
