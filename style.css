@@ -119,7 +119,7 @@ input[type="range"]::-webkit-slider-thumb {
     width: 100%;
     height: 300px;
     margin: 20px auto;
-    perspective: 1000px; /* Add perspective for 3D effect */
+    perspective: 1200px; /* Increase perspective for a stronger 3D effect */
 }
 
 .swiper-slide {
@@ -127,25 +127,32 @@ input[type="range"]::-webkit-slider-thumb {
     background-size: cover;
     width: 300px;
     height: 200px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); /* Deeper shadow for depth */
-    transition: transform 0.3s ease;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /* Deeper shadow for more depth */
+    transition: transform 0.3s ease, opacity 0.3s ease;
     position: relative;
     border-radius: 12px;
     cursor: pointer;
     opacity: 0;
     animation: fade-in 0.5s ease forwards;
-    z-index: 1; /* Ensure layering */
+    z-index: 1; /* Base z-index for layering */
 }
 
 /* Active slide (center) */
 .swiper-slide-active {
-    z-index: 2; /* Bring to front */
-    transform: scale(1.1); /* Slightly larger */
+    z-index: 3; /* Bring to front */
+    transform: scale(1.15); /* Larger scale for emphasis */
+    opacity: 1;
 }
 
-/* Non-active slides */
-.swiper-slide:not(.swiper-slide-active) {
-    opacity: 0.7; /* Slightly faded */
+/* Adjacent slides */
+.swiper-slide-next, .swiper-slide-prev {
+    z-index: 2; /* Slightly behind the active slide */
+    opacity: 0.85; /* Slightly faded */
+}
+
+/* Non-active slides (further out) */
+.swiper-slide:not(.swiper-slide-active):not(.swiper-slide-next):not(.swiper-slide-prev) {
+    opacity: 0.5; /* More faded for depth */
 }
 
 /* Add a subtle border to enhance layering */
@@ -155,7 +162,7 @@ input[type="range"]::-webkit-slider-thumb {
     object-fit: cover;
     border-radius: 12px;
     filter: brightness(1) saturate(1.1);
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border for definition */
+    border: 2px solid rgba(255, 255, 255, 0.3); /* Thicker border for definition */
 }
 
 @keyframes fade-in {
@@ -260,7 +267,7 @@ input[type="range"]::-webkit-slider-thumb {
     }
     100% {
         transform: scale(1);
-        }
+    }
 }
 
 .modal {
