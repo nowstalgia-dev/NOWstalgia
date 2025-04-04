@@ -253,10 +253,10 @@ function updateContent() {
         loopAdditionalSlides: 6, // Increase for smoother looping
         initialSlide: Math.floor(duplicatedImages.length / 2), // Start in the middle
         coverflowEffect: {
-            rotate: 30, // More pronounced rotation
-            stretch: -50, // Negative stretch to overlap edges
-            depth: 200, // Deeper perspective
-            modifier: 2, // Amplify the effect
+            rotate: 45, // More pronounced rotation
+            stretch: -100, // More overlap for a tighter, layered look
+            depth: 300, // Deeper perspective
+            modifier: 3, // Amplify the effect
             slideShadows: true,
         },
         pagination: {
