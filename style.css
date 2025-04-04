@@ -1,121 +1,122 @@
-body {
-    font-family: 'Press Start 2P', cursive;
-    background: #1a1a1a; /* Dark Y2K background */
-    text-align: center;
-    padding: 20px;
-    color: #fff;
-    position: relative;
-    overflow-x: hidden;
+/* Import Apple’s San Francisco font (fallback to system fonts) */
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 }
 
-/* Y2K wireframe grid background */
+body {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+    background: #1c2526; /* Dark, neutral Apple-like background */
+    text-align: center;
+    padding: 20px;
+    color: #ffffff;
+    position: relative;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+/* Remove the Y2K grid background */
 body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('https://www.transparenttextures.com/patterns/grid-me.png') repeat; /* Subtle grid texture */
-    opacity: 0.1;
-    z-index: -1;
+    display: none;
 }
 
 h1 {
-    color: #fff; /* White base */
-    background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff); /* Holographic gradient */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 10px rgba(255, 0, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.8); /* Neon glow */
+    color: #ffffff;
     font-size: 2.5em;
-    animation: flicker 3s infinite;
-}
-
-@keyframes flicker {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.8; }
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+    text-shadow: none;
+    animation: none;
 }
 
 .slider-container {
     margin: 20px 0;
-    background: rgba(255, 255, 255, 0.1); /* Glassy effect */
+    background: rgba(255, 255, 255, 0.1); /* Frosted glass effect */
     padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
-    backdrop-filter: blur(5px); /* Frosted glass */
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 input[type="range"] {
     width: 80%;
     max-width: 500px;
     -webkit-appearance: none;
-    height: 12px;
-    background: linear-gradient(to right, #ff00ff, #00ffff); /* Gradient slider */
-    border-radius: 5px;
+    height: 6px;
+    background: linear-gradient(to right, #8e8e93, #d1d1d6); /* Subtle Apple gradient */
+    border-radius: 3px;
     outline: none;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
     transition: background 0.3s ease;
 }
 
 input[type="range"]:hover {
-    background: linear-gradient(to right, #00ffff, #ff00ff);
+    background: linear-gradient(to right, #d1d1d6, #8e8e93);
 }
 
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 24px;
-    height: 24px;
-    background: #fff;
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .category-buttons {
     margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 .category-btn {
-    font-family: 'Press Start 2P', cursive;
-    background: linear-gradient(45deg, #ff00ff, #00ffff); /* Holographic gradient */
-    color: #fff;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
     border: none;
-    padding: 10px 20px;
-    margin: 0 5px;
+    padding: 8px 16px;
     cursor: pointer;
-    transition: all 0.3s;
-    box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .category-btn:hover, .category-btn.active {
-    background: linear-gradient(45deg, #00ffff, #ff00ff);
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 #nostalgia-content {
-    background: rgba(255, 255, 255, 0.05); /* Glassy Y2K effect */
-    border: 2px solid #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
     padding: 20px;
     max-width: 600px;
     margin: 0 auto;
-    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.5);
-    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
     transition: opacity 0.3s ease;
 }
 
 #year-title {
-    color: #fff;
-    background: linear-gradient(45deg, #ff00ff, #00ffff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #ffffff;
     font-size: 1.5em;
-    text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
 }
 
 #year-info {
     font-size: 1em;
-    color: #fff;
-    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+    color: #d1d1d6; /* Softer white for text */
+    line-height: 1.5;
 }
 
 /* Swiper Cover Flow Styling */
@@ -130,28 +131,50 @@ input[type="range"]::-webkit-slider-thumb {
     background-size: cover;
     width: 300px;
     height: 200px;
-    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.5); /* Holographic glow */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
+    position: relative;
+    border-radius: 12px;
+}
+
+/* Subtle reflection effect */
+.swiper-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    border-radius: 12px;
 }
 
 .swiper-slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(1.1) saturate(1.2); /* Enhance image vibrancy */
+    border-radius: 12px;
+    filter: brightness(1) saturate(1.1);
 }
 
 .swiper-button-next, .swiper-button-prev {
-    color: #fff;
-    filter: drop-shadow(0 0 5px #ff00ff) drop-shadow(0 0 10px #00ffff);
+    color: #ffffff;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.swiper-button-next:hover, .swiper-button-prev:hover {
+    opacity: 1;
 }
 
 .swiper-pagination-bullet {
-    background: #ff00ff;
+    background: #8e8e93;
+    opacity: 0.5;
 }
 
 .swiper-pagination-bullet-active {
-    background: #00ffff;
+    background: #ffffff;
+    opacity: 1;
 }
 
 .submit-form {
@@ -160,39 +183,43 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .submit-form h3 {
-    color: #fff;
-    background: linear-gradient(45deg, #ff00ff, #00ffff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #ffffff;
     font-size: 1.2em;
-    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+    font-weight: 500;
+    margin-bottom: 10px;
 }
 
 #memory-input {
     width: 80%;
     height: 100px;
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border: 2px solid #ff00ff;
-    padding: 10px;
-    font-family: Arial, sans-serif;
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+    font-size: 14px;
     resize: none;
-    box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 #submit-memory {
-    font-family: 'Press Start 2P', cursive;
-    background: linear-gradient(45deg, #ff00ff, #00ffff);
-    color: #fff;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+    background: #007aff; /* Apple’s signature blue */
+    color: #ffffff;
     border: none;
     padding: 10px 20px;
     margin-top: 10px;
     cursor: pointer;
-    transition: all 0.3s;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 #submit-memory:hover {
-    background: linear-gradient(45deg, #00ffff, #ff00ff);
-    box-shadow: 0 0 15px rgba(255, 0, 255, 0.8);
+    background: #005bb5; /* Darker blue on hover */
 }
