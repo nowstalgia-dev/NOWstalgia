@@ -229,7 +229,7 @@ function updateContent() {
 
     // Duplicate images to ensure enough slides for seamless looping
     const images = yearData.images || [];
-    const duplicatedImages = [...images, ...images, ...images, ...images, ...images, ...images, ...images, ...images, ...images, ...images]; // 10x duplication for seamless looping
+    const duplicatedImages = [...images, ...images, ...images, ...images, ...images, ...images, ...images, ...images, ...images, ...images, ...images, ...images, ...images, ...images, ...images, ...images, ...images, ...images, ...images, ...images]; // 20x duplication for seamless looping
 
     // Add duplicated images to Swiper with click handlers
     duplicatedImages.forEach((image, index) => {
@@ -248,15 +248,15 @@ function updateContent() {
         effect: 'coverflow',
         grabCursor: true,
         centeredSlides: true,
-        slidesPerView: 'auto', // Revert to 'auto' to allow dynamic slide visibility
+        slidesPerView: 'auto',
         loop: true,
-        loopAdditionalSlides: 30, // Increase to ensure enough slides are pre-rendered
+        loopAdditionalSlides: 50, // Increase significantly to ensure seamless looping
         initialSlide: Math.floor(duplicatedImages.length / 2), // Start in the middle
         coverflowEffect: {
-            rotate: 45, // More pronounced rotation
-            stretch: -100, // More overlap for a tighter, layered look
-            depth: 300, // Deeper perspective
-            modifier: 3, // Amplify the effect
+            rotate: 50, // Sharper rotation to match qpcoverflow
+            stretch: -150, // Tighter spacing for a more compact look
+            depth: 400, // Deeper perspective
+            modifier: 4, // Amplify the effect
             slideShadows: true,
         },
         pagination: {
@@ -269,10 +269,12 @@ function updateContent() {
         },
     });
 
-    // Force Swiper to re-render for looping
+    // Force Swiper to re-render and reinitialize the loop
     setTimeout(() => {
         swiper.update();
-        swiper.slideToLoop(Math.floor(images.length / 2), 0);
+        swiper.loopDestroy(); // Destroy the loop
+        swiper.loopCreate(); // Recreate the loop
+        swiper.slideToLoop(Math.floor(images.length / 2), 0); // Reset to the middle
     }, 100);
 
     // Play sound on year change
