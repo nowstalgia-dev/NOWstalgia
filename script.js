@@ -18,9 +18,9 @@ const nostalgiaData = {
         music: "Disco’s last gasp—Blondie’s *Call Me* rules.",
         movies: "*Empire Strikes Back*—Vader drops the bomb.",
         images: [
-            "https://images.pexels.com/photos/5425588/pexels-photo-5425588.jpeg?auto=compress&cs=tinysrgb&w=300", // Rubik’s Cube
-            "https://images.pexels.com/photos/2098427/pexels-photo-2098427.jpeg?auto=compress&cs=tinysrgb&w=300", // Arcade vibe
-            "https://images.pexels.com/photos/34577/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=300" // Retro tech
+            "https://images.pexels.com/photos/5425588/pexels-photo-5425588.jpeg?auto=compress&cs=tinysrgb&w=300",
+            "https://images.pexels.com/photos/2098427/pexels-photo-2098427.jpeg?auto=compress&cs=tinysrgb&w=300",
+            "https://images.pexels.com/photos/34577/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=300"
         ]
     },
     1985: {
@@ -29,9 +29,9 @@ const nostalgiaData = {
         music: "Madonna’s *Like a Virgin* owns the charts.",
         movies: "*Back to the Future*—Marty rewinds time.",
         images: [
-            "https://images.pexels.com/photos/2098427/pexels-photo-2098427.jpeg?auto=compress&cs=tinysrgb&w=300", // NES vibe
-            "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg?auto=compress&cs=tinysrgb&w=300", // Gaming
-            "https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=300" // Retro screen
+            "https://images.pexels.com/photos/2098427/pexels-photo-2098427.jpeg?auto=compress&cs=tinysrgb&w=300",
+            "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg?auto=compress&cs=tinysrgb&w=300",
+            "https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=300"
         ]
     },
     1990: {
@@ -40,9 +40,9 @@ const nostalgiaData = {
         music: "Nirvana’s grunge whispers start with *Bleach*.",
         movies: "*Home Alone*—Kevin’s pizza and traps.",
         images: [
-            "https://images.pexels.com/photos/38568/gameboy-color-nintendo-retro-38568.jpeg?auto=compress&cs=tinysrgb&w=300", // Game Boy
-            "https://images.pexels.com/photos/3541916/pexels-photo-3541916.jpeg?auto=compress&cs=tinysrgb&w=300", // Retro tech
-            "https://images.pexels.com/photos/5082579/pexels-photo-5082579.jpeg?auto=compress&cs=tinysrgb&w=300" // More tech
+            "https://images.pexels.com/photos/38568/gameboy-color-nintendo-retro-38568.jpeg?auto=compress&cs=tinysrgb&w=300",
+            "https://images.pexels.com/photos/3541916/pexels-photo-3541916.jpeg?auto=compress&cs=tinysrgb&w=300",
+            "https://images.pexels.com/photos/5082579/pexels-photo-5082579.jpeg?auto=compress&cs=tinysrgb&w=300"
         ]
     },
     1995: {
@@ -51,9 +51,9 @@ const nostalgiaData = {
         music: "Oasis’ *Wonderwall* battles Blur’s *Country House*.",
         movies: "*Toy Story*—Pixar’s first big buzz.",
         images: [
-            "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg?auto=compress&cs=tinysrgb&w=300", // PlayStation
-            "https://images.pexels.com/photos/2098427/pexels-photo-2098427.jpeg?auto=compress&cs=tinysrgb&w=300", // Gaming
-            "https://images.pexels.com/photos/34577/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=300" // Retro tech
+            "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg?auto=compress&cs=tinysrgb&w=300",
+            "https://images.pexels.com/photos/2098427/pexels-photo-2098427.jpeg?auto=compress&cs=tinysrgb&w=300",
+            "https://images.pexels.com/photos/34577/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=300"
         ]
     },
     2000: {
@@ -62,9 +62,9 @@ const nostalgiaData = {
         music: "Eminem’s *Stan* haunts the airwaves.",
         movies: "*Gladiator*—Maximus roars in the arena.",
         images: [
-            "https://images.pexels.com/photos/3541916/pexels-photo-3541916.jpeg?auto=compress&cs=tinysrgb&w=300", // Nokia-ish
-            "https://images.pexels.com/photos/5082579/pexels-photo-5082579.jpeg?auto=compress&cs=tinysrgb&w=300", // Phone vibe
-            "https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=300" // Tech
+            "https://images.pexels.com/photos/3541916/pexels-photo-3541916.jpeg?auto=compress&cs=tinysrgb&w=300",
+            "https://images.pexels.com/photos/5082579/pexels-photo-5082579.jpeg?auto=compress&cs=tinysrgb&w=300",
+            "https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=300"
         ]
     },
     2005: {
@@ -73,9 +73,9 @@ const nostalgiaData = {
         music: "Green Day’s *American Idiot* resurges punk.",
         movies: "*Batman Begins*—Nolan’s dark knight rises.",
         images: [
-            "https://images.pexels.com/photos/34577/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=300", // Retro screen
-            "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg?auto=compress&cs=tinysrgb&w=300", // Tech
-            "https://images.pexels.com/photos/2098427/pexels-photo-2098427.jpeg?auto=compress&cs=tinysrgb&w=300" // More tech
+            "https://images.pexels.com/photos/34577/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=300",
+            "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg?auto=compress&cs=tinysrgb&w=300",
+            "https://images.pexels.com/photos/2098427/pexels-photo-2098427.jpeg?auto=compress&cs=tinysrgb&w=300"
         ]
     },
     2010: {
@@ -84,9 +84,9 @@ const nostalgiaData = {
         music: "Lady Gaga’s *Bad Romance* slays pop.",
         movies: "*Inception*—dreams within dreams.",
         images: [
-            "https://images.pexels.com/photos/257923/pexels-photo-257923.jpeg?auto=compress&cs=tinysrgb&w=300", // iPad
-            "https://images.pexels.com/photos/5082579/pexels-photo-5082579.jpeg?auto=compress&cs=tinysrgb&w=300", // Tech
-            "https://images.pexels.com/photos/3541916/pexels-photo-3541916.jpeg?auto=compress&cs=tinysrgb&w=300" // More tech
+            "https://images.pexels.com/photos/257923/pexels-photo-257923.jpeg?auto=compress&cs=tinysrgb&w=300",
+            "https://images.pexels.com/photos/5082579/pexels-photo-5082579.jpeg?auto=compress&cs=tinysrgb&w=300",
+            "https://images.pexels.com/photos/3541916/pexels-photo-3541916.jpeg?auto=compress&cs=tinysrgb&w=300"
         ]
     },
     2015: {
@@ -95,9 +95,9 @@ const nostalgiaData = {
         music: "The Weeknd’s *Can’t Feel My Face* vibes.",
         movies: "*Mad Max: Fury Road*—insane desert chases.",
         images: [
-            "https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=300", // Streaming
-            "https://images.pexels.com/photos/34577/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=300", // Screen
-            "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg?auto=compress&cs=tinysrgb&w=300" // Tech
+            "https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=300",
+            "https://images.pexels.com/photos/34577/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=300",
+            "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg?auto=compress&cs=tinysrgb&w=300"
         ]
     },
     2020: {
@@ -106,9 +106,9 @@ const nostalgiaData = {
         music: "Billie Eilish’s *Everything I Wanted* haunts.",
         movies: "*The Last Dance*—Jordan’s final shot.",
         images: [
-            "https://images.pexels.com/photos/5082579/pexels-photo-5082579.jpeg?auto=compress&cs=tinysrgb&w=300", // TikTok vibe
-            "https://images.pexels.com/photos/3541916/pexels-photo-3541916.jpeg?auto=compress&cs=tinysrgb&w=300", // Phone
-            "https://images.pexels.com/photos/257923/pexels-photo-257923.jpeg?auto=compress&cs=tinysrgb&w=300" // Tech
+            "https://images.pexels.com/photos/5082579/pexels-photo-5082579.jpeg?auto=compress&cs=tinysrgb&w=300",
+            "https://images.pexels.com/photos/3541916/pexels-photo-3541916.jpeg?auto=compress&cs=tinysrgb&w=300",
+            "https://images.pexels.com/photos/257923/pexels-photo-257923.jpeg?auto=compress&cs=tinysrgb&w=300"
         ]
     },
     2025: {
@@ -117,9 +117,9 @@ const nostalgiaData = {
         music: "Synthwave revival—nostalgia’s sound.",
         movies: "*Avatar 3*—Pandora’s next chapter.",
         images: [
-            "https://images.pexels.com/photos/5185436/pexels-photo-5185436.jpeg?auto=compress&cs=tinysrgb&w=300", // AI art
-            "https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=300", // Tech
-            "https://images.pexels.com/photos/2098427/pexels-photo-2098427.jpeg?auto=compress&cs=tinysrgb&w=300" // Retro vibe
+            "https://images.pexels.com/photos/5185436/pexels-photo-5185436.jpeg?auto=compress&cs=tinysrgb&w=300",
+            "https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=300",
+            "https://images.pexels.com/photos/2098427/pexels-photo-2098427.jpeg?auto=compress&cs=tinysrgb&w=300"
         ]
     }
 };
@@ -139,7 +139,8 @@ function updateContent() {
     yearImages.innerHTML = '';
 
     // Add new images to Swiper
-    (yearData.images || []).forEach(image => {
+    const images = yearData.images || [];
+    images.forEach(image => {
         const slide = document.createElement('div');
         slide.className = 'swiper-slide';
         slide.innerHTML = `<img src="${image}" alt="Nostalgia Image">`;
@@ -154,6 +155,8 @@ function updateContent() {
         centeredSlides: true,
         slidesPerView: 'auto',
         loop: true, // Infinite scroll
+        loopAdditionalSlides: 1, // Ensures extra slides for looping
+        initialSlide: Math.floor(images.length / 2), // Start with middle slide
         coverflowEffect: {
             rotate: 50,
             stretch: 0,
