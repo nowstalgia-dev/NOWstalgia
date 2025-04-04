@@ -6,9 +6,89 @@ const yearInfo = document.getElementById('year-info');
 const categoryButtons = document.querySelectorAll('.category-btn');
 const memoryInput = document.getElementById('memory-input');
 const submitMemory = document.getElementById('submit-memory');
+const modal = document.getElementById('marketplace-modal');
+const modalTitle = document.getElementById('modal-title');
+const modalBuy = document.getElementById('modal-buy');
+const modalStream = document.getElementById('modal-stream');
+const modalMarketplace = document.getElementById('modal-marketplace');
+const modalClose = document.getElementById('modal-close');
 
 let currentCategory = 'all';
 let swiper;
+
+// Marketplace data for each year (example links)
+const marketplaceData = {
+    1980: {
+        images: [
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=rubiks+cube+vintage", stream: "", marketplace: "#" },
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=disco+records", stream: "https://open.spotify.com/playlist/37i9dQZF1DX1MUPbVKMgJE", marketplace: "#" },
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=empire+strikes+back+poster", stream: "https://www.disneyplus.com/movies/star-wars-the-empire-strikes-back-episode-v/12NlK7V043jG", marketplace: "#" }
+        ]
+    },
+    1985: {
+        images: [
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=nintendo+nes+console", stream: "", marketplace: "#" },
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=back+to+the+future+poster", stream: "https://www.netflix.com/title/60010110", marketplace: "#" },
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=madonna+like+a+virgin+vinyl", stream: "https://open.spotify.com/album/2MTi4yA1xPPG0yHNqHiuS0", marketplace: "#" }
+        ]
+    },
+    1990: {
+        images: [
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=gameboy+original", stream: "", marketplace: "#" },
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=home+alone+poster", stream: "https://www.disneyplus.com/movies/home-alone/77lKvdDccO2o", marketplace: "#" },
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=nirvana+bleach+vinyl", stream: "https://open.spotify.com/album/1rGIP9k6b3S2z5vT3qQMCG", marketplace: "#" }
+        ]
+    },
+    1995: {
+        images: [
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=playstation+1+console", stream: "", marketplace: "#" },
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=toy+story+poster", stream: "https://www.disneyplus.com/movies/toy-story/6kS7z1S6x1Zq", marketplace: "#" },
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=oasis+wonderwall+vinyl", stream: "https://open.spotify.com/track/5qqabIl2Q0u6bVwZpRsMPQ", marketplace: "#" }
+        ]
+    },
+    2000: {
+        images: [
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=nokia+3310", stream: "", marketplace: "#" },
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=gladiator+poster", stream: "https://www.netflix.com/title/60000805", marketplace: "#" },
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=eminem+stan+vinyl", stream: "https://open.spotify.com/track/3UmaczJpikHgJFBRCHkMmx", marketplace: "#" }
+        ]
+    },
+    2005: {
+        images: [
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=old+computer", stream: "https://www.youtube.com/about/", marketplace: "#" },
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=batman+begins+poster", stream: "https://www.hbomax.com/movies/batman-begins", marketplace: "#" },
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=green+day+american+idiot+vinyl", stream: "https://open.spotify.com/album/5dN7F9DV0Qg1XRdBeAqR8B", marketplace: "#" }
+        ]
+    },
+    2010: {
+        images: [
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=apple+ipad+1st+generation", stream: "", marketplace: "#" },
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=inception+poster", stream: "https://www.netflix.com/title/70131314", marketplace: "#" },
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=lady+gaga+bad+romance+vinyl", stream: "https://open.spotify.com/track/0SiywuOBRcynK0uKGWdCnn", marketplace: "#" }
+        ]
+    },
+    2015: {
+        images: [
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=smart+tv", stream: "https://www.netflix.com", marketplace: "#" },
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=mad+max+fury+road+poster", stream: "https://www.hbomax.com/movies/mad-max-fury-road", marketplace: "#" },
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=the+weeknd+cant+feel+my+face+vinyl", stream: "https://open.spotify.com/track/6RS6O1V2OormANf6UzD7yx", marketplace: "#" }
+        ]
+    },
+    2020: {
+        images: [
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=smartphone", stream: "https://www.tiktok.com", marketplace: "#" },
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=the+last+dance+poster", stream: "https://www.netflix.com/title/80203144", marketplace: "#" },
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=billie+eilish+everything+i+wanted+vinyl", stream: "https://open.spotify.com/track/3ZCTVFBt2Brf31RLEnCkWJ", marketplace: "#" }
+        ]
+    },
+    2025: {
+        images: [
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=ai+art+print", stream: "", marketplace: "#" },
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=avatar+3+poster", stream: "https://www.disneyplus.com", marketplace: "#" },
+            { buy: "https://www.ebay.com/sch/i.html?_nkw=synthwave+vinyl", stream: "https://open.spotify.com/playlist/37i9dQZF1DXdLEN7Aq8oUk", marketplace: "#" }
+        ]
+    }
+};
 
 // Nostalgia data with multiple images per year
 const nostalgiaData = {
@@ -80,7 +160,7 @@ const nostalgiaData = {
     },
     2010: {
         all: "Instagram snaps in, iPad reshapes, *Inception* dreams. <a href='https://www.ebay.com/sch/i.html?_nkw=apple+ipad+1st+generation' target='_blank'>Grab an iPad</a>",
-        tech: "Apple iPad—tablets go mainstream. <a href='https://www.ebay.com/sch/i.html?_nkw=apple+ipad+1st+generation' across='https://www.ebay.com/sch/i.html?_nkw=apple+ipad+1st+generation' target='_blank'>Buy it</a>",
+        tech: "Apple iPad—tablets go mainstream. <a href='https://www.ebay.com/sch/i.html?_nkw=apple+ipad+1st+generation' target='_blank'>Buy it</a>",
         music: "Lady Gaga’s *Bad Romance* slays pop.",
         movies: "*Inception*—dreams within dreams.",
         images: [
@@ -140,13 +220,16 @@ function updateContent() {
 
     // Duplicate images to ensure enough slides for balanced display
     const images = yearData.images || [];
-    const duplicatedImages = [...images, ...images]; // Duplicate the array (e.g., 3 images become 6)
+    const duplicatedImages = [...images, ...images];
 
-    // Add duplicated images to Swiper
-    duplicatedImages.forEach(image => {
+    // Add duplicated images to Swiper with click handlers
+    duplicatedImages.forEach((image, index) => {
         const slide = document.createElement('div');
         slide.className = 'swiper-slide';
         slide.innerHTML = `<img src="${image}" alt="Nostalgia Image">`;
+        slide.dataset.index = index % images.length; // Map to original image index
+        slide.dataset.year = year;
+        slide.addEventListener('click', handleImageClick);
         yearImages.appendChild(slide);
     });
 
@@ -157,9 +240,9 @@ function updateContent() {
         grabCursor: true,
         centeredSlides: true,
         slidesPerView: 'auto',
-        loop: true, // Infinite scroll
-        loopAdditionalSlides: 3, // Pre-fill with more slides
-        initialSlide: Math.floor(images.length / 2), // Start in the middle of the original images
+        loop: true,
+        loopAdditionalSlides: 3,
+        initialSlide: Math.floor(images.length / 2),
         coverflowEffect: {
             rotate: 50,
             stretch: 0,
@@ -177,12 +260,44 @@ function updateContent() {
         },
     });
 
-    // Force Swiper to re-render and balance
     setTimeout(() => {
         swiper.update();
-        swiper.slideToLoop(Math.floor(images.length / 2), 0); // Center on the middle of the original images
+        swiper.slideToLoop(Math.floor(images.length / 2), 0);
     }, 100);
 }
+
+// Handle image click to show modal
+function handleImageClick(event) {
+    const year = event.currentTarget.dataset.year;
+    const index = event.currentTarget.dataset.index;
+    const links = marketplaceData[year]?.images[index] || {};
+
+    // Update modal content
+    modalTitle.textContent = `Explore ${year} Nostalgia`;
+    modalBuy.onclick = () => window.open(links.buy || '#', '_blank');
+    modalStream.onclick = () => window.open(links.stream || '#', '_blank');
+    modalMarketplace.onclick = () => window.open(links.marketplace || '#', '_blank');
+
+    // Show/hide buttons based on available links
+    modalBuy.style.display = links.buy ? 'block' : 'none';
+    modalStream.style.display = links.stream ? 'block' : 'none';
+    modalMarketplace.style.display = links.marketplace ? 'block' : 'none';
+
+    // Show modal
+    modal.style.display = 'flex';
+}
+
+// Close modal
+modalClose.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+// Close modal when clicking outside
+window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+});
 
 slider.addEventListener('input', updateContent);
 
