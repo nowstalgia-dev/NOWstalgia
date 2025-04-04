@@ -155,8 +155,9 @@ function updateContent() {
         centeredSlides: true,
         slidesPerView: 'auto',
         loop: true, // Infinite scroll
-        loopAdditionalSlides: 1, // Ensures extra slides for looping
-        initialSlide: Math.floor(images.length / 2), // Start with middle slide
+        loopAdditionalSlides: 3, // Pre-fill with more slides for balance
+        loopPreventsSlide: false, // Ensure smooth looping
+        initialSlide: 1, // Start on the second slide to balance
         coverflowEffect: {
             rotate: 50,
             stretch: 0,
@@ -173,6 +174,12 @@ function updateContent() {
             prevEl: '.swiper-button-prev',
         },
     });
+
+    // Force Swiper to re-render after a slight delay to ensure loop fills both sides
+    setTimeout(() => {
+        swiper.update();
+        swiper.slideToLoop(1, 0); // Move to the second slide to ensure balance
+    }, 100);
 }
 
 slider.addEventListener('input', updateContent);
