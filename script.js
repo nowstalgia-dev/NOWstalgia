@@ -80,7 +80,7 @@ const nostalgiaData = {
     },
     2010: {
         all: "Instagram snaps in, iPad reshapes, *Inception* dreams. <a href='https://www.ebay.com/sch/i.html?_nkw=apple+ipad+1st+generation' target='_blank'>Grab an iPad</a>",
-        tech: "Apple iPad—tablets go mainstream. <a href='https://www.ebay.com/sch/i.html?_nkw=apple+ipad+1st+generation' target='_blank'>Buy it</a>",
+        tech: "Apple iPad—tablets go mainstream. <a href='https://www.ebay.com/sch/i.html?_nkw=apple+ipad+1st+generation' across='https://www.ebay.com/sch/i.html?_nkw=apple+ipad+1st+generation' target='_blank'>Buy it</a>",
         music: "Lady Gaga’s *Bad Romance* slays pop.",
         movies: "*Inception*—dreams within dreams.",
         images: [
@@ -138,9 +138,12 @@ function updateContent() {
     // Clear previous images
     yearImages.innerHTML = '';
 
-    // Add new images to Swiper
+    // Duplicate images to ensure enough slides for balanced display
     const images = yearData.images || [];
-    images.forEach(image => {
+    const duplicatedImages = [...images, ...images]; // Duplicate the array (e.g., 3 images become 6)
+
+    // Add duplicated images to Swiper
+    duplicatedImages.forEach(image => {
         const slide = document.createElement('div');
         slide.className = 'swiper-slide';
         slide.innerHTML = `<img src="${image}" alt="Nostalgia Image">`;
@@ -155,9 +158,8 @@ function updateContent() {
         centeredSlides: true,
         slidesPerView: 'auto',
         loop: true, // Infinite scroll
-        loopAdditionalSlides: 3, // Pre-fill with more slides for balance
-        loopPreventsSlide: false, // Ensure smooth looping
-        initialSlide: 1, // Start on the second slide to balance
+        loopAdditionalSlides: 3, // Pre-fill with more slides
+        initialSlide: Math.floor(images.length / 2), // Start in the middle of the original images
         coverflowEffect: {
             rotate: 50,
             stretch: 0,
@@ -175,10 +177,10 @@ function updateContent() {
         },
     });
 
-    // Force Swiper to re-render after a slight delay to ensure loop fills both sides
+    // Force Swiper to re-render and balance
     setTimeout(() => {
         swiper.update();
-        swiper.slideToLoop(1, 0); // Move to the second slide to ensure balance
+        swiper.slideToLoop(Math.floor(images.length / 2), 0); // Center on the middle of the original images
     }, 100);
 }
 
