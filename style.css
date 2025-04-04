@@ -119,6 +119,7 @@ input[type="range"]::-webkit-slider-thumb {
     width: 100%;
     height: 300px;
     margin: 20px auto;
+    perspective: 1000px; /* Add perspective for 3D effect */
 }
 
 .swiper-slide {
@@ -126,13 +127,35 @@ input[type="range"]::-webkit-slider-thumb {
     background-size: cover;
     width: 300px;
     height: 200px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); /* Deeper shadow for depth */
     transition: transform 0.3s ease;
     position: relative;
     border-radius: 12px;
     cursor: pointer;
-    opacity: 0; /* Start hidden for fade-in */
+    opacity: 0;
     animation: fade-in 0.5s ease forwards;
+    z-index: 1; /* Ensure layering */
+}
+
+/* Active slide (center) */
+.swiper-slide-active {
+    z-index: 2; /* Bring to front */
+    transform: scale(1.1); /* Slightly larger */
+}
+
+/* Non-active slides */
+.swiper-slide:not(.swiper-slide-active) {
+    opacity: 0.7; /* Slightly faded */
+}
+
+/* Add a subtle border to enhance layering */
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    filter: brightness(1) saturate(1.1);
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border for definition */
 }
 
 @keyframes fade-in {
@@ -155,14 +178,6 @@ input[type="range"]::-webkit-slider-thumb {
     height: 100%;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
     border-radius: 12px;
-}
-
-.swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 12px;
-    filter: brightness(1) saturate(1.1);
 }
 
 .swiper-button-next, .swiper-button-prev {
@@ -245,7 +260,7 @@ input[type="range"]::-webkit-slider-thumb {
     }
     100% {
         transform: scale(1);
-    }
+        }
 }
 
 .modal {
