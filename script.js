@@ -250,18 +250,14 @@ function updateContent() {
         centeredSlides: true,
         slidesPerView: 'auto',
         loop: true,
-        loopAdditionalSlides: 50, // Increase significantly to ensure seamless looping
+        loopAdditionalSlides: 50, // Ensure seamless looping
         initialSlide: Math.floor(duplicatedImages.length / 2), // Start in the middle
         coverflowEffect: {
-            rotate: 50, // Sharper rotation to match qpcoverflow
-            stretch: -150, // Tighter spacing for a more compact look
+            rotate: 50, // Sharper rotation
+            stretch: -150, // Tighter spacing
             depth: 400, // Deeper perspective
             modifier: 4, // Amplify the effect
             slideShadows: true,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
         },
         navigation: {
             nextEl: '.swiper-button-next',
